@@ -1,4 +1,4 @@
-# PHP Multisite with AWS Elastic Beanstalk
+# Spring Boot application with AWS Elastic Beanstalk
 
 ## Requirements
 
@@ -14,12 +14,38 @@ git clone https://github.com/aurbac/eb-java-spring-boot.git
 cd eb-java-spring-boot
 ```
 
+## Install OpenJDK 8
+
+``` bash
+sudo yum -y install java-1.8.0-openjdk-devel
+```
+
+Switch or upgrade the default Java development toolset to OpenJDK 8.
+
+``` bash
+sudo update-alternatives --config java
+sudo update-alternatives --config javac
+```
+
+Confirm that the command line versions of the Java runner and compiler are using OpenJDK 8.
+
+``` bash
+java -version
+javac -version
+```
+
 ## Install Maven
 
 ``` bash
 sudo wget http://repos.fedorapeople.org/repos/dchen/apache-maven/epel-apache-maven.repo -O /etc/yum.repos.d/epel-apache-maven.repo
 sudo sed -i s/\$releasever/6/g /etc/yum.repos.d/epel-apache-maven.repo
 sudo yum install -y apache-maven
+```
+
+## Build Project
+
+``` bash
+mvn package
 ```
 
 ### Configure Virtual Hosts and VPC/Subnets
@@ -34,6 +60,15 @@ git add .
 git commit -m "Changes for VPC and subnets"
 ```
 
+## Generate Artifact
+
+``` bash
+cp .ebextensions target/.ebextensions -r
+cd target
+zip ExampleJava-0.0.1-SNAPSHOT.zip .ebextensions ExampleJava-0.0.1-SNAPSHOT.jar
+cd ..
+```
+
 ## Initialize Elastic Beanstalk Project
 
 ``` bash
@@ -43,7 +78,7 @@ eb init
 Select a default region: **1) us-east-1 : US East (N. Virginia)**
 
 
-Enter Application Name: **eb-java-spring-boot**
+Select an application to use: **1) eb-java-spring-boot**
 
 
 Select a platform. **11) Java**
@@ -60,6 +95,15 @@ Do you want to set up SSH for your instances? **Y**
 
 Select a keypair. **(Select your KeyPair)**
 
+
+## Deploy configuration    
+
+Open **.elasticbeanstalk/config.yml** file and add a **deploy** config as follows:
+
+``` yaml
+deploy:
+  artifact: target/ExampleJava-0.0.1-SNAPSHOT.zip
+```
 
 ## Create your first Environment
 
