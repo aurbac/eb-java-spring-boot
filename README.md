@@ -65,7 +65,7 @@ git commit -m "Changes for VPC and subnets"
 ``` bash
 cp .ebextensions target/.ebextensions -r
 cd target
-zip ExampleJava-0.0.1-SNAPSHOT.zip .ebextensions ExampleJava-0.0.1-SNAPSHOT.jar
+zip ExampleJava-0.0.1-SNAPSHOT.zip -ur .ebextensions ExampleJava-0.0.1-SNAPSHOT.jar
 cd ..
 ```
 

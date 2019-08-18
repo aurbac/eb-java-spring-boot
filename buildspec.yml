@@ -1,0 +1,23 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      # Install dependencies needed for running tests
+      - java -version
+      # Upgrade AWS CLI to the latest version
+      - pip install --upgrade awscli
+  pre_build:
+    commands:
+      # Discover and run unit tests in the 'tests' directory
+      - mvn test
+  build:
+    commands:
+      # Use AWS SAM to package the application by using AWS CloudFormation
+      - mvn package
+
+artifacts:
+  type: zip
+  files:
+    - target/ExampleJava-0.0.1-SNAPSHOT.jar
+    - .ebextensions
