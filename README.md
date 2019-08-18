@@ -14,6 +14,14 @@ git clone https://github.com/aurbac/eb-java-spring-boot.git
 cd eb-java-spring-boot
 ```
 
+## Install Maven
+
+``` bash
+sudo wget http://repos.fedorapeople.org/repos/dchen/apache-maven/epel-apache-maven.repo -O /etc/yum.repos.d/epel-apache-maven.repo
+sudo sed -i s/\$releasever/6/g /etc/yum.repos.d/epel-apache-maven.repo
+sudo yum install -y apache-maven
+```
+
 ### Configure Virtual Hosts and VPC/Subnets
 
 * Edit the file [**.ebextensions/vhosts.config**](.ebextensions/vhosts.config) with your own domains.
@@ -35,13 +43,16 @@ eb init
 Select a default region: **1) us-east-1 : US East (N. Virginia)**
 
 
-Select an application to use: **1) sites**
+Enter Application Name: **eb-java-spring-boot**
 
 
-It appears you are using PHP. Is this correct? **Y**
+Select a platform. **11) Java**
 
 
-Select a platform version. **3) PHP 7.0**
+Select a platform version. **1) Java 8**
+
+
+Do you wish to continue with CodeCommit? **N**
 
 
 Do you want to set up SSH for your instances? **Y**
@@ -49,7 +60,9 @@ Do you want to set up SSH for your instances? **Y**
 
 Select a keypair. **(Select your KeyPair)**
 
+
 ## Create your first Environment
+
 
 ``` bash
 eb create
