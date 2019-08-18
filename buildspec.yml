@@ -21,9 +21,14 @@ phases:
     commands:
       # Discover and run unit tests in the 'tests' directory
       - mv target/ExampleJava-0.0.1-SNAPSHOT.jar ExampleJava-0.0.1-SNAPSHOT.jar
-      - zip ExampleJava-0.0.1-SNAPSHOT.zip -ur .ebextensions ExampleJava-0.0.1-SNAPSHOT.jar
+      #- zip ExampleJava-0.0.1-SNAPSHOT.zip -ur .ebextensions ExampleJava-0.0.1-SNAPSHOT.jar
 
 artifacts:
-  type: zip
+  #type: zip
   files:
     - ExampleJava-0.0.1-SNAPSHOT.zip
+    - .ebextensions/app.config
+    - .ebextensions/application-load-balancer.config
+    - .ebextensions/as.config
+    - .ebextensions/as-monitoring.config
+    - .ebextensions/vpc.config
