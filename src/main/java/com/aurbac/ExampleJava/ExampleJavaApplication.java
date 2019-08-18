@@ -13,7 +13,7 @@ public class ExampleJavaApplication {
 
 	@RequestMapping("/")
 	String home() {
-		return "Hello AWS Elastic Beanstalk";
+		return "Welcome to AWS Elastic Beanstalk";
 	}
 	
 	public static void main(String[] args) {
