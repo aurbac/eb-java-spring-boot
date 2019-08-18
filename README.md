@@ -112,10 +112,10 @@ deploy:
 eb create
 ```
 
-Enter Environment Name: **(default is sites-dev)**
+Enter Environment Name: **(default is eb-java-spring-boot-dev)**
 
 
-Enter DNS CNAME prefix: **(default is sites-dev)**
+Enter DNS CNAME prefix: **(default is eb-java-spring-boot-dev)**
 
 
 Select a load balancer type: **2) application**
