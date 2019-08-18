@@ -3,15 +3,13 @@ package com.aurbac.ExampleJava;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
 @RestController
 @EnableAutoConfiguration
-public class ExampleJavaApplication extends SpringBootServletInitializer {
+public class ExampleJavaApplication {
 
 	@RequestMapping("/")
 	String home() {
@@ -22,9 +20,5 @@ public class ExampleJavaApplication extends SpringBootServletInitializer {
 		SpringApplication.run(ExampleJavaApplication.class, args);
 	}
 	
-	@Override
-	protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
-		return builder.sources(ExampleJavaApplication.class);
-	}
 
 }
