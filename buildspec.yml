@@ -5,7 +5,6 @@ phases:
     runtime-versions:
       java: corretto8
     commands:
-      # Install dependencies needed for running tests
       - java -version
       # Upgrade AWS CLI to the latest version
       - pip install --upgrade awscli
@@ -15,11 +14,10 @@ phases:
       - mvn test
   build:
     commands:
-      # Use AWS SAM to package the application by using AWS CloudFormation
+      # Build
       - mvn package
   post_build:
     commands:
-      # Discover and run unit tests in the 'tests' directory
       - mv target/ExampleJava-0.0.1-SNAPSHOT.jar ExampleJava-0.0.1-SNAPSHOT.jar
       #- zip ExampleJava-0.0.1-SNAPSHOT.zip -ur .ebextensions ExampleJava-0.0.1-SNAPSHOT.jar
 
@@ -27,8 +25,4 @@ artifacts:
   #type: zip
   files:
     - ExampleJava-0.0.1-SNAPSHOT.jar
-    - .ebextensions/app.config
-    - .ebextensions/application-load-balancer.config
-    - .ebextensions/as.config
-    - .ebextensions/as-monitoring.config
-    - .ebextensions/vpc.config
+    - .ebextensions/*
