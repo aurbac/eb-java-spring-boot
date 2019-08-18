@@ -48,12 +48,12 @@ sudo yum install -y apache-maven
 mvn package
 ```
 
-### Configure Virtual Hosts and VPC/Subnets
+## Configure Virtual Hosts and VPC/Subnets
 
 * Edit the file [**.ebextensions/vhosts.config**](.ebextensions/vhosts.config) with your own domains.
 * Replace values in [**.ebextensions/vpc.config**](.ebextensions/vpc.config) with the resources created by the CloudFormation template or your own vpc and subnets.
 
-### Commit changes
+## Commit changes
 
 ``` bash
 git add .
