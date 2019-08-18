@@ -26,7 +26,7 @@ phases:
 artifacts:
   #type: zip
   files:
-    - ExampleJava-0.0.1-SNAPSHOT.zip
+    - ExampleJava-0.0.1-SNAPSHOT.jar
     - .ebextensions/app.config
     - .ebextensions/application-load-balancer.config
     - .ebextensions/as.config
