@@ -1,20 +1,24 @@
 # Spring Boot application with AWS Elastic Beanstalk
 
+![Diagram](images/diagram.png)
+
 ## Requirements
 
-* [AWS Command Line Interface](https://aws.amazon.com/cli/)
-* [The Elastic Beanstalk Command Line Interface](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/eb-cli3.html)
-* VPC with Public and Private subnets is required
-    - You can use the following [CloudFormation Template to create your VPC-Public-And-Private](https://raw.githubusercontent.com/aurbac/msg-app-backend/master/vpc/AURBAC-VPC-Public-And-Private.json)
+* [AWS Command Line Interface](https://aws.amazon.com/cli/).
+    - With IAM privileges.
+* [The Elastic Beanstalk Command Line Interface](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/eb-cli3.html).
+* VPC with Public and Private subnets is required.
+    - You can use the following [CloudFormation Template to create your VPC-Public-And-Private](https://raw.githubusercontent.com/aurbac/msg-app-backend/master/vpc/AURBAC-VPC-Public-And-Private.json).
 
-## Clone Github Project
+## Using your Cloud9 environment
+
+### Install EB CLI 
 
 ``` bash
-git clone https://github.com/aurbac/eb-java-spring-boot.git
-cd eb-java-spring-boot
+pip install awsebcli --upgrade --user
 ```
 
-## Install OpenJDK 8
+### Install OpenJDK 8
 
 ``` bash
 sudo yum -y install java-1.8.0-openjdk-devel
@@ -34,12 +38,19 @@ java -version
 javac -version
 ```
 
-## Install Maven
+### Install Maven
 
 ``` bash
 sudo wget http://repos.fedorapeople.org/repos/dchen/apache-maven/epel-apache-maven.repo -O /etc/yum.repos.d/epel-apache-maven.repo
 sudo sed -i s/\$releasever/6/g /etc/yum.repos.d/epel-apache-maven.repo
 sudo yum install -y apache-maven
+```
+
+## Clone Github Project
+
+``` bash
+git clone https://github.com/aurbac/eb-java-spring-boot.git
+cd eb-java-spring-boot
 ```
 
 ## Build Project
