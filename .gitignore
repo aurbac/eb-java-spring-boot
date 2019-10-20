@@ -36,4 +36,5 @@ build/
 !.elasticbeanstalk/*.global.yml
 
 .DS_Store
+**/.DS_Store
 package.zip
